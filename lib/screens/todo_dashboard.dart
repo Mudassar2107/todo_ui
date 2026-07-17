@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../models/todo.dart';
+import '../services/api_service.dart';
 
 class TodoDashboard extends StatefulWidget
 {
@@ -8,25 +10,5 @@ class TodoDashboard extends StatefulWidget
 }
 class _TodoDashboardState extends State<TodoDashboard>
 {
-    @override
-    Widget build(BuildContext context) 
-    {
-      return Scaffold(
-        backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-            title: const Text(
-                'My To-Do App',
-                style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            elevation: 0,
-            backgroundColor: Colors.blueAccent,
-            foregroundColor: Colors.white,
-        ),
-        body: const Center(
-            child: Text('Dashboard is live.',
-            style: TextStyle(fontSize: 18, color: Colors.black54),
-            ),
-        ),
-      );
-    }
+    
 }
