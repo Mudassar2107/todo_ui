@@ -13,7 +13,22 @@ class ApiService
   Future<List<Todo>> fetchTodos() async
   {
     final response = await http.get(Uri.parse(baseUrl));
-    // 1. Decode the raw JSON string into a Dart Map
-    
+    if(response.statusCode == 200)
+    {
+      // 1. Decode the raw JSON string into a Dart Map
+      final Map<String, dynamic> data = jsonDecode(response.body);
+      // 2. Extract the list from the "Tasks" key (Matching your Python backend!)
+      final List<dynamic> tasksJson = data['Tasks'];
+      // 3. Loop through the list and convert each JSON block into a Todo object
+      return tasksJson.map((json) => Todo.fromJson(json)).toList();
+    }
+    else
+    {
+      throw Exception('Failed to load tasks from backend.');
+    }
   }
+  // ---------------------------------------------------------
+  // POST: Send a new task to Postgres
+  // ---------------------------------------------------------
+  
 }
