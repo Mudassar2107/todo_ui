@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'screens/todo_dashboard.dart';
+
+void main()
+{
+    runApp(const MyApp());
+}
+class MyApp extends StatelessWidget
+{
+    const MyApp({super.key});
+    @override
+  Widget build(BuildContext context) 
+  {
+    return Material(
+        debugShowCheckedModelBanner: false
+        title: 'Postgres To-Do'
+        theme: ThenmeData(
+            primarySwatch: Colors.blue,
+        ),
+        home: const TodoDashboard(),
+    );
+  }
+}
