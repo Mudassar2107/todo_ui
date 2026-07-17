@@ -30,5 +30,22 @@ class ApiService
   // ---------------------------------------------------------
   // POST: Send a new task to Postgres
   // ---------------------------------------------------------
-  
+  Future<Todo> createTodo(Todo newTodo)async
+  {
+    final response = await http.post(
+      Uri.parse(baseUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(newTodo.toJson()), // Pack the Dart object into JSON
+    );
+    if(response.statusCode == 200)
+    {
+      final Map<String, dynamic> data = jsonDecode(response.body);
+      // Grab the single task returned inside the "Task" key from Python
+      return Todo.fromJson(data['Task']);
+    }
+    else
+    {
+      throw Exception('Failed to create task.');
+    }
+  }
 }
