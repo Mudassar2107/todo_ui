@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget
   {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Postgres To-Do',
+        title: 'My To-Do App',
         theme: ThemeData(
             primarySwatch: Colors.blue,
         ),
