@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget
     @override
   Widget build(BuildContext context) 
   {
-    return Material(
-        debugShowCheckedModelBanner: false
-        title: 'Postgres To-Do'
-        theme: ThenmeData(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Postgres To-Do',
+        theme: ThemeData(
             primarySwatch: Colors.blue,
         ),
         home: const TodoDashboard(),
